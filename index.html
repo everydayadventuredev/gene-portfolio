@@ -75,7 +75,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-si
 nav{position:fixed;top:32px;left:0;right:0;z-index:100;height:50px;background:rgba(12,12,14,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem}
 nav .name{font-family:var(--font-display);font-size:18px;font-weight:600;color:var(--text)}
 nav .links{display:flex;gap:2px}
-nav .links a{font-family:var(--font-mono);font-size:12px;color:var(--text-muted);text-decoration:none;padding:7px 14px;border-radius:var(--radius);transition:all .2s}
+nav .links a{font-family:var(--font-mono);font-size:12px;color:var(--text-muted);text-decoration:none;padding:14px 14px;border-radius:var(--radius);transition:all .2s}
 nav .links a:hover{color:var(--text);background:var(--bg-hover)}
 nav .links a.active{color:var(--accent)}
 nav .hamburger{display:none;background:none;border:none;color:var(--text-muted);font-size:22px;cursor:pointer;padding:4px 8px;border-radius:var(--radius);transition:color .2s}
@@ -149,6 +149,7 @@ section{margin-bottom:5rem;scroll-margin-top:100px}
 
 /* ═══ PROJECTS — FIX #1 affordance + FIX #2 no overlay ═══ */
 .project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.project-grid .project-card:last-child:nth-child(odd){grid-column:1/-1}
 .project-card{border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-raised);padding:1.5rem 1.5rem 2.5rem;transition:all .3s;position:relative;overflow:hidden}
 .project-card.expanded{padding-bottom:1.5rem}
 .project-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.3)}
@@ -158,7 +159,7 @@ section{margin-bottom:5rem;scroll-margin-top:100px}
 .project-card .project-thumb.portrait{aspect-ratio:auto;height:180px;object-fit:cover;object-position:center 18%}
 .project-card.expanded .project-thumb{display:none}
 .project-card .project-emoji{font-size:32px;margin-bottom:1rem;display:block}
-.project-card h3{font-family:var(--font-display);font-size:19px;font-weight:600;color:var(--text);margin-bottom:4px}
+.project-card h2{font-family:var(--font-display);font-size:19px;font-weight:600;color:var(--text);margin-bottom:4px}
 .project-card .project-type{font-family:var(--font-mono);font-size:13px;color:var(--text-muted);margin-bottom:12px;letter-spacing:.5px}
 .project-status{display:inline-block;font-family:var(--font-mono);font-size:11px;padding:2px 8px;border-radius:3px;margin-left:8px;letter-spacing:.3px;vertical-align:middle}
 .project-status.live{color:#6bbfb3;border:1px solid rgba(107,191,179,.3);background:rgba(107,191,179,.08)}
@@ -206,7 +207,8 @@ section{margin-bottom:5rem;scroll-margin-top:100px}
 .about-content{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .about-block{border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-raised);padding:1.5rem}
 .about-block.full-width{grid-column:1/-1}
-.about-block h3{font-family:var(--font-mono);font-size:12px;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:.75rem}
+.about-block h3,.about-block .block-label{font-family:var(--font-mono);font-size:12px;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:.75rem}
+.about-block h3{font-size:14px}
 .about-block p{font-size:15px;color:var(--text-secondary);line-height:1.85}
 .about-block .footnote{font-size:13px;color:var(--text-muted);font-style:italic;margin-top:6px}
 .about-block ul{list-style:none;padding:0}
@@ -1514,8 +1516,8 @@ MOO — Most Obvious Objection，最明顯的反對意見。
     wink: "",
     links: [
       { icon: "📧", label: "Email", href: "mailto:basuya95@gmail.com" },
-      { icon: "💼", label: "LinkedIn", href: "#" },
-      { icon: "🐙", label: "GitHub", href: "#" },
+      { icon: "💼", label: "LinkedIn", href: "https://www.linkedin.com/in/basuya/" },
+      { icon: "🐙", label: "GitHub", href: "https://github.com/everydayadventuredev" },
     ],
   },
 
@@ -1596,7 +1598,7 @@ function render() {
       <div class="project-card reveal" data-idx="${idx}">
         <div class="project-head" onclick="toggleProject(this)">
           ${topIcon}
-          <h3>${p.name}</h3>
+          <h2>${p.name}</h2>
           <div class="project-type">${p.type}${p.status ? `<span class="project-status ${p.status.style}">${p.status.label}</span>` : ''}</div>
           <p>${p.desc}</p>
           ${coverImage}

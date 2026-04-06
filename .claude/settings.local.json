@@ -26,7 +26,13 @@
       "Bash(git init:*)",
       "Bash(git branch:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(gh repo:*)",
+      "mcp__Claude_Preview__preview_start",
+      "Skill(design-review)",
+      "Skill(design-review:*)",
+      "Bash(vercel deploy:*)",
+      "Bash(git push:*)"
     ]
   }
 }
