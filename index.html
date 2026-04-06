@@ -157,7 +157,12 @@ section{margin-bottom:5rem;scroll-margin-top:100px}
 .project-card.expanded{cursor:default}
 .project-card.expanded .project-head{cursor:pointer}
 .project-card .project-thumb{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center;border-radius:4px;border:1px solid var(--border);margin:4px 0 1.25rem;display:block;background:var(--bg-card)}
-.project-card .project-thumb.portrait{aspect-ratio:auto;height:180px;object-fit:cover;object-position:center 18%}
+.project-card .project-thumb.portrait{aspect-ratio:auto;height:180px;object-fit:cover;object-position:center 18%;border:none;margin:0}
+/* Device frame for portrait screenshots */
+.device-frame{position:relative;width:fit-content;max-width:180px;margin:8px auto 1.25rem;padding:8px 6px 14px;background:#1a1a1e;border-radius:20px;border:2px solid #333;box-shadow:0 4px 20px rgba(0,0,0,.4)}
+.device-frame::before{content:'';position:absolute;top:3px;left:50%;transform:translateX(-50%);width:40px;height:4px;background:#2a2a2e;border-radius:3px}
+.device-frame::after{content:'';position:absolute;bottom:4px;left:50%;transform:translateX(-50%);width:32px;height:3px;background:#2a2a2e;border-radius:2px}
+.device-frame .project-thumb.portrait{width:100%;height:auto;max-height:200px;border-radius:10px;display:block}
 .project-card.expanded .project-thumb{display:none}
 .project-card .project-emoji{font-size:32px;margin-bottom:1rem;display:block}
 .project-card h2{font-family:var(--font-display);font-size:19px;font-weight:600;color:var(--text);margin-bottom:4px}
@@ -338,7 +343,8 @@ footer .easter:hover{opacity:1}
   .writing-body{padding:0 1rem 1rem}
   .writings-filter{flex-wrap:wrap}
   .project-card .project-thumb{aspect-ratio:16/10;height:auto;max-height:160px}
-  .project-card .project-thumb.portrait{height:120px}
+  .device-frame{max-width:140px;padding:6px 5px 12px;border-radius:16px}
+  .device-frame .project-thumb.portrait{max-height:160px}
   .project-card.expanded{grid-column:1/-1}
   .project-card.empty-slot{min-height:80px}
   .project-detail .detail-links{flex-direction:column}
@@ -1602,7 +1608,9 @@ function render() {
     const hasDetail = p.detail && (p.detail.problem || p.detail.solution || (p.detail.highlights && p.detail.highlights.length));
     const topIcon = p.thumbnail ? '' : `<span class="project-emoji">${p.emoji}</span>`;
     const coverImage = p.thumbnail
-      ? `<img class="project-thumb${p.variant==='portrait'?' portrait':''}" src="${p.thumbnail}" alt="${p.name}">`
+      ? (p.variant === 'portrait'
+        ? `<div class="device-frame"><img class="project-thumb portrait" src="${p.thumbnail}" alt="${p.name}"></div>`
+        : `<img class="project-thumb" src="${p.thumbnail}" alt="${p.name}">`)
       : '';
 
     let detailHTML = '';
