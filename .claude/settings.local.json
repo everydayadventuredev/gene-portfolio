@@ -32,7 +32,9 @@
       "Skill(design-review)",
       "Skill(design-review:*)",
       "Bash(vercel deploy:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(vercel git:*)",
+      "Bash(vercel link:*)"
     ]
   }
 }

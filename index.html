@@ -144,8 +144,8 @@ section{margin-bottom:5rem;scroll-margin-top:100px}
 .exp-body ul{list-style:none;padding:0;margin-bottom:.75rem}
 .exp-body ul li{font-size:15px;color:var(--text-secondary);padding:4px 0;display:flex;align-items:baseline;gap:8px;line-height:1.85}
 .exp-body ul li::before{content:'·';color:var(--accent);font-weight:bold;flex-shrink:0}
-.exp-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:.75rem}
-.exp-tag{font-family:var(--font-mono);font-size:12px;color:var(--text-muted)}
+.exp-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:.75rem}
+.exp-tag{font-family:var(--font-mono);font-size:12px;padding:4px 10px;border:1px solid var(--border);border-radius:3px;color:var(--text-muted);pointer-events:none;user-select:none}
 
 /* ═══ PROJECTS — FIX #1 affordance + FIX #2 no overlay ═══ */
 .project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
@@ -153,7 +153,8 @@ section{margin-bottom:5rem;scroll-margin-top:100px}
 .project-card{border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-raised);padding:1.5rem 1.5rem 2.5rem;transition:all .3s;position:relative;overflow:hidden}
 .project-card.expanded{padding-bottom:1.5rem}
 .project-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.3)}
-.project-card .project-head{cursor:pointer}
+.project-card{cursor:pointer}
+.project-card.expanded{cursor:default}
 .project-card.expanded .project-head{cursor:pointer}
 .project-card .project-thumb{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center;border-radius:4px;border:1px solid var(--border);margin:4px 0 1.25rem;display:block;background:var(--bg-card)}
 .project-card .project-thumb.portrait{aspect-ratio:auto;height:180px;object-fit:cover;object-position:center 18%}
@@ -184,6 +185,7 @@ section{margin-bottom:5rem;scroll-margin-top:100px}
 .project-detail .detail-row{margin-bottom:14px}
 .project-detail .detail-label{font-family:var(--font-mono);font-size:12px;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:5px}
 .project-detail .detail-text{font-size:15px;color:var(--text-secondary);line-height:1.85}
+.project-detail .detail-text strong{color:var(--text);font-weight:600}
 .project-detail .detail-highlights{list-style:none;padding:0}
 .project-detail .detail-highlights li{font-size:15px;color:var(--text-secondary);padding:3px 0;display:flex;align-items:baseline;gap:8px}
 .project-detail .detail-highlights li::before{content:'→';color:var(--accent);flex-shrink:0;font-size:12px}
@@ -460,8 +462,8 @@ const SITE_DATA = {
       variant: "portrait",
       tags: ["Flutter", "Dart", "Firebase", "Riverpod", "OpenStreetMap", "Overpass API"],
       detail: {
-        problem: "每天走同樣的路，經過同樣的風景，卻從來沒有真正「看見」周圍。散步缺乏目的感，正念練習又太嚴肅。需要一個讓日常移動變得有趣、讓人重新觀察世界的工具。",
-        solution: "App 在你周圍隨機生成一個目的地，你走過去，到達後會根據附近的真實地標（透過 Overpass API 查詢）產生感知任務——拍照、觀察、聆聽。貓咪夥伴全程陪走，留下爪印軌跡。完成後可以看到其他匿名探索者在這裡的發現。",
+        problem: "每天走同樣的路，經過同樣的風景，卻從來沒有真正「看見」周圍。散步**缺乏目的感**，正念練習又太嚴肅。需要一個讓日常移動變得有趣、讓人**重新觀察世界**的工具。",
+        solution: "App 在你周圍**隨機生成一個目的地**，你走過去，到達後會根據附近的真實地標（透過 Overpass API 查詢）產生**感知任務**——拍照、觀察、聆聽。貓咪夥伴全程陪走，留下爪印軌跡。完成後可以看到其他匿名探索者在這裡的發現。",
         highlights: [
           "🗺️ POI 感知任務：到達時查詢附近真實地標，產生「在福山公園找到最有趣的角落」這類跟地點有關的任務",
           "🐾 貓咪夥伴：會取名字、走路時留爪印、到達時興奮反應、100 句隨機台詞",
@@ -490,8 +492,8 @@ const SITE_DATA = {
       thumbnail: "lunch-02-card.jpg",
       tags: ["React", "Vite", "DALL-E 3", "GitHub Pages"],
       detail: {
-        problem: "每天中午「吃什麼」是辦公室最大的集體焦慮——不是沒選擇，是選擇太多又都不想選。既然理性決策失敗，不如交給命運。",
-        solution: "把午餐選擇包裝成暗黑塔羅占卜體驗：翻牌、抽籤、解讀，用厭世幽默和儀式感讓「隨便」變成一件有趣的事。106 道食物各有 AI 生成的金色木刻風插圖，五個品級對應不同卡面風格，重抽越多次大師語氣越不耐煩，第 10 次惡魔接手直接幫你決定。",
+        problem: "每天中午「吃什麼」是辦公室最大的**集體焦慮**——不是沒選擇，是選擇太多又都不想選。既然理性決策失敗，不如**交給命運**。",
+        solution: "把午餐選擇包裝成**暗黑塔羅占卜體驗**：翻牌、抽籤、解讀，用厭世幽默和儀式感讓「隨便」變成一件有趣的事。106 道食物各有 AI 生成的金色木刻風插圖，五個品級對應不同卡面風格，重抽越多次大師語氣越不耐煩，**第 10 次惡魔接手直接幫你決定**。",
         highlights: [
           "🎴 106 張 DALL-E 3 生成的塔羅風格食物插圖，金色木刻線條統一美學",
           "🔮 翻牌互動：正面是全幅插圖的塔羅牌，翻面是宜忌解讀 + 厭世語錄",
@@ -519,8 +521,8 @@ const SITE_DATA = {
       thumbnail: "readreceipt-01.jpg",
       tags: ["React", "Vite", "CSS-in-JS", "Idle Game", "Game Design"],
       detail: {
-        problem: "放置型遊戲（idle game）看似簡單，實際上是最考驗系統設計的遊戲類型之一——數值平衡、多層乘法堆疊、節奏設計、玩家決策空間，全部藏在「點一下」的表面之下。我想從零做一個完整的 idle game，同時探索 AI-assisted game development 的工作流。",
-        solution: "以台灣人最熟悉的「已讀不回」為核心，建構完整的 Cookie Clicker 式遊戲系統：20 種建築、113 個升級、4 個子系統小遊戲（花園、合成、期貨、量子實驗室）、統一 Buff 堆疊機制、轉世系統、罪惡感機制。全程使用 Claude Code 協作開發，從原型到部署共 74 個 commit，5 天完成。",
+        problem: "放置型遊戲（idle game）看似簡單，實際上是**最考驗系統設計的遊戲類型之一**——數值平衡、多層乘法堆疊、節奏設計、玩家決策空間，全部藏在「點一下」的表面之下。我想從零做一個完整的 idle game，同時探索 **AI-assisted game development** 的工作流。",
+        solution: "以台灣人最熟悉的「已讀不回」為核心，建構完整的 Cookie Clicker 式遊戲系統：**20 種建築、113 個升級、4 個子系統小遊戲**（花園、合成、期貨、量子實驗室）、統一 Buff 堆疊機制、轉世系統、罪惡感機制。全程使用 Claude Code 協作開發，從原型到部署共 **74 個 commit，5 天完成**。",
         highlights: [
           "⚙️ 統一 Buff 系統：同源加法、跨源乘法，搭配 source cap 設計出「完美時機窗口」的策略層",
           "🔗 量子共振橋接機制：短節奏遊戲產出的共振可加成中節奏遊戲的收益，創造跨系統聯動",
@@ -545,8 +547,8 @@ const SITE_DATA = {
       desc: "專為大食怪設計的餐廳評價 App——不看裝潢不看氣氛，只問一個問題：「這間吃得飽嗎？」",
       tags: ["React Native", "Expo", "Supabase", "Google Places API", "TypeScript"],
       detail: {
-        problem: "Google Maps 告訴你好不好吃，但不會告訴你吃不吃得飽。身為一個認真的豬魔，你需要的是：花 $150 能不能吃到撐、飯能不能續、湯是不是免費的。這些資訊，沒有任何平台在追蹤。",
-        solution: "打造一個以「飽足感 × CP 值」為核心維度的餐廳評價系統。用 Google Places API 一鍵匯入常去的餐廳，依照你的食量等級（小鳥胃到大魔王）算出專屬的「吃飽預算」。你的每一筆評價都在回答：以我的食量，在這間店，花多少錢才能心滿意足地走出來？",
+        problem: "Google Maps 告訴你好不好吃，但**不會告訴你吃不吃得飽**。身為一個認真的豬魔，你需要的是：花 $150 能不能吃到撐、飯能不能續、湯是不是免費的。這些資訊，**沒有任何平台在追蹤**。",
+        solution: "打造一個以**「飽足感 × CP 值」為核心維度**的餐廳評價系統。用 Google Places API 一鍵匯入常去的餐廳，依照你的食量等級（小鳥胃到大魔王）算出專屬的「吃飽預算」。你的每一筆評價都在回答：以我的食量，在這間店，花多少錢才能心滿意足地走出來？",
         highlights: [
           "🍚 食量分級系統：從小鳥胃到大魔王，每個人看到的「吃飽價」都不一樣",
           "📍 Google Places 整合：打餐廳名字自動帶出地址和座標，支援中文搜尋",
@@ -570,8 +572,8 @@ const SITE_DATA = {
       variant: "portrait",
       tags: ["HTML5 Canvas", "Vanilla JS", "Game Design"],
       detail: {
-        problem: "人對形狀的記憶比想像中脆弱。看過一個圖形三秒後，你真的記得它有多大、轉了幾度、有多飽滿嗎？這個問題沒有實用價值，但它很好玩——而且沒人做過一個乾淨、輕量、可以在等捷運時玩一局的版本。",
-        solution: "五輪、三個維度（size / rotation / inflate）的視覺記憶挑戰。每輪給你看一個隨機生成的多邊形，消失後用三支滑桿重現它。單檔 HTML、零依賴、打開就能玩，連載入畫面都沒有。",
+        problem: "人對形狀的**記憶比想像中脆弱**。看過一個圖形三秒後，你真的記得它有多大、轉了幾度、有多飽滿嗎？這個問題沒有實用價值，但它很好玩——而且**沒人做過一個乾淨、輕量**、可以在等捷運時玩一局的版本。",
+        solution: "五輪、**三個維度**（size / rotation / inflate）的視覺記憶挑戰。每輪給你看一個隨機生成的多邊形，消失後用三支滑桿重現它。**單檔 HTML、零依賴**、打開就能玩，連載入畫面都沒有。",
         highlights: [
           "🎯 三個維度的形狀記憶——大小、旋轉、飽滿度，你會發現自己擅長其中一個、對另一個毫無概念",
           "😏 Snarky 吐槽系統——遊戲會根據你的表現給出不同程度的陰陽怪氣，分數越低罵得越狠",
@@ -1551,7 +1553,7 @@ function render() {
   const expCards = d.experience.map(exp => {
     const openClass = exp.defaultOpen ? ' open' : '';
     const bullets = exp.bullets.map(b => `<li>${b}</li>`).join('');
-    const tags = exp.tags.map(t => `<span class="exp-tag">${t}</span>`).join('<span class="exp-tag" style="opacity:.3"> · </span>');
+    const tags = exp.tags.map(t => `<span class="exp-tag">${t}</span>`).join('');
     return `
       <div class="exp-item${openClass} reveal">
         <div class="exp-header">
@@ -1579,13 +1581,14 @@ function render() {
       : '';
 
     let detailHTML = '';
+    const bold = s => s ? s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>') : '';
     if (hasDetail) {
       const det = p.detail;
       const highlights = (det.highlights||[]).map(h => `<li>${h}</li>`).join('');
       detailHTML = `
         <div class="project-detail">
-          ${det.problem ? `<div class="detail-row"><div class="detail-label">Problem</div><div class="detail-text">${det.problem}</div></div>` : ''}
-          ${det.solution ? `<div class="detail-row"><div class="detail-label">Solution</div><div class="detail-text">${det.solution}</div></div>` : ''}
+          ${det.problem ? `<div class="detail-row"><div class="detail-label">Problem</div><div class="detail-text">${bold(det.problem)}</div></div>` : ''}
+          ${det.solution ? `<div class="detail-row"><div class="detail-label">Solution</div><div class="detail-text">${bold(det.solution)}</div></div>` : ''}
           ${highlights ? `<div class="detail-row"><div class="detail-label">Highlights</div><ul class="detail-highlights">${highlights}</ul></div>` : ''}
           ${det.screenshot ? `<img class="detail-screenshot" src="${det.screenshot}" alt="${p.name} screenshot">` : ''}
           ${det.gallery && det.gallery.length ? `<div class="detail-gallery">${det.gallery.map(src => `<img src="${src}" alt="${p.name} screenshot" loading="lazy">`).join('')}</div>` : ''}
@@ -1599,8 +1602,8 @@ function render() {
     const cueHTML = hasDetail ? `<div class="expand-cue"><span class="cue-chevron">▾</span></div>` : '';
 
     return `
-      <div class="project-card reveal" data-idx="${idx}">
-        <div class="project-head" onclick="toggleProject(this)">
+      <div class="project-card reveal" data-idx="${idx}" onclick="toggleProject(this)">
+        <div class="project-head">
           ${topIcon}
           <h2>${p.name}</h2>
           <div class="project-type">${p.type}${p.status ? `<span class="project-status ${p.status.style}">${p.status.label}</span>` : ''}</div>
@@ -1772,7 +1775,7 @@ function render() {
 // ─── Project interactions (FIX #2: no overlay) ───
 
 function toggleProject(headOrCard, mode) {
-  // headOrCard: the element that was clicked (.project-head) or the card itself (from button)
+  // headOrCard: the card itself or .project-head
   // mode: 'head' (preserve visual position) or 'button' (scroll card top into view)
   const card = headOrCard.classList.contains('project-card')
     ? headOrCard
@@ -1780,6 +1783,13 @@ function toggleProject(headOrCard, mode) {
   if (!card || card.classList.contains('empty-slot')) return;
 
   const isExpanding = !card.classList.contains('expanded');
+
+  // When expanded, only allow collapse from head click or button — not detail area
+  if (!isExpanding && !mode) {
+    // Check if the click originated from the head area
+    const clickedHead = event && event.target && event.target.closest('.project-head');
+    if (!clickedHead) return; // clicked on detail area, do nothing
+  }
 
   if (isExpanding) {
     card.classList.add('expanded');
