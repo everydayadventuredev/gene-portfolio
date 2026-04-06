@@ -34,7 +34,12 @@
       "Bash(vercel deploy:*)",
       "Bash(git push:*)",
       "Bash(vercel git:*)",
-      "Bash(vercel link:*)"
+      "Bash(vercel link:*)",
+      "Bash(vercel ls:*)",
+      "Bash(vercel inspect:*)",
+      "Bash(vercel logs:*)",
+      "Bash(vercel domains:*)",
+      "Bash(ls -la *.png.jpg *.jpg)"
     ]
   }
 }
