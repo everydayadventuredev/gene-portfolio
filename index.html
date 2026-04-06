@@ -472,7 +472,7 @@ const SITE_DATA = {
   projects: [
     {
       emoji: "🐱",
-      name: "日常即冒險 Everyday Adventure",
+      name: "日常即冒險",
       type: "mobile app · 2026",
       status: { label: "測試中", style: "beta" },
       desc: "把日常散步變成有趣冒險的探索 app——隨機目的地 + 感知任務 + 貓咪夥伴陪你走。",
@@ -499,6 +499,36 @@ const SITE_DATA = {
       },
       links: [
         { text: "→ github", href: "https://github.com/everydayadventuredev/everyday-adventure" },
+      ],
+    },
+    {
+      emoji: "🐷",
+      name: "豬魔覓食",
+      type: "mobile app · 2026",
+      status: { label: "開發中", style: "dev" },
+      desc: "專為大食怪設計的餐廳評價 App——不看裝潢不看氣氛，只問一個問題：「這間吃得飽嗎？」",
+      thumbnail: "piggy-02-restaurant.jpg",
+      variant: "portrait",
+      tags: ["React Native", "Expo", "Supabase", "Google Places API", "TypeScript"],
+      detail: {
+        problem: "Google Maps 告訴你好不好吃，但**不會告訴你吃不吃得飽**。身為一個認真的豬魔，你需要的是：花 $150 能不能吃到撐、飯能不能續、湯是不是免費的。這些資訊，**沒有任何平台在追蹤**。",
+        solution: "打造一個以**「飽足感 × CP 值」為核心維度**的餐廳評價系統。用 Google Places API 一鍵匯入常去的餐廳，依照你的食量等級（小鳥胃到大魔王）算出專屬的「吃飽預算」。你的每一筆評價都在回答：以我的食量，在這間店，花多少錢才能心滿意足地走出來？",
+        highlights: [
+          "🍚 食量分級系統：從小鳥胃到大魔王，每個人看到的「吃飽價」都不一樣",
+          "📍 Google Places 整合：打餐廳名字自動帶出地址和座標，支援中文搜尋",
+          "⚡ 5 步驟快速評價：飽足感 → 金額 → 味道 → CP 值 → 一句話心得，30 秒搞定",
+          "🗺️ 附近探索：站在路邊打開 App，馬上知道方圓兩公里內哪間 CP 值最高",
+          "🐷 PigCelebration 動畫：每寫完一筆評價，豬豬會跳出來慶祝你又吃飽了",
+        ],
+        gallery: [
+          "piggy-01-onboard.jpg",
+          "piggy-02-restaurant.jpg",
+          "piggy-03-diary.jpg",
+          "piggy-04-profile.jpg",
+        ],
+      },
+      links: [
+        { text: "→ github", href: "https://github.com/ringshome/big_eat_app" },
       ],
     },
     {
@@ -532,7 +562,7 @@ const SITE_DATA = {
     },
     {
       emoji: "✓✓",
-      name: "已讀收件匣 Read Receipt Clicker",
+      name: "已讀收件匣",
       type: "web app · 2026",
       status: { label: "已上線", style: "live" },
       desc: "一款以「已讀不回」為主題的放置型策略遊戲，用荒謬的社交焦慮換取指數級成長的已讀數。",
@@ -555,36 +585,6 @@ const SITE_DATA = {
       links: [
         { text: "→ play", href: "https://everydayadventuredev.github.io/read-receipt-clicker/" },
         { text: "→ github", href: "https://github.com/everydayadventuredev/read-receipt-clicker" },
-      ],
-    },
-    {
-      emoji: "🐷",
-      name: "豬魔覓食 PiggyFinder",
-      type: "mobile app · 2026",
-      status: { label: "開發中", style: "dev" },
-      desc: "專為大食怪設計的餐廳評價 App——不看裝潢不看氣氛，只問一個問題：「這間吃得飽嗎？」",
-      thumbnail: "piggy-02-restaurant.jpg",
-      variant: "portrait",
-      tags: ["React Native", "Expo", "Supabase", "Google Places API", "TypeScript"],
-      detail: {
-        problem: "Google Maps 告訴你好不好吃，但**不會告訴你吃不吃得飽**。身為一個認真的豬魔，你需要的是：花 $150 能不能吃到撐、飯能不能續、湯是不是免費的。這些資訊，**沒有任何平台在追蹤**。",
-        solution: "打造一個以**「飽足感 × CP 值」為核心維度**的餐廳評價系統。用 Google Places API 一鍵匯入常去的餐廳，依照你的食量等級（小鳥胃到大魔王）算出專屬的「吃飽預算」。你的每一筆評價都在回答：以我的食量，在這間店，花多少錢才能心滿意足地走出來？",
-        highlights: [
-          "🍚 食量分級系統：從小鳥胃到大魔王，每個人看到的「吃飽價」都不一樣",
-          "📍 Google Places 整合：打餐廳名字自動帶出地址和座標，支援中文搜尋",
-          "⚡ 5 步驟快速評價：飽足感 → 金額 → 味道 → CP 值 → 一句話心得，30 秒搞定",
-          "🗺️ 附近探索：站在路邊打開 App，馬上知道方圓兩公里內哪間 CP 值最高",
-          "🐷 PigCelebration 動畫：每寫完一筆評價，豬豬會跳出來慶祝你又吃飽了",
-        ],
-        gallery: [
-          "piggy-01-onboard.jpg",
-          "piggy-02-restaurant.jpg",
-          "piggy-03-diary.jpg",
-          "piggy-04-profile.jpg",
-        ],
-      },
-      links: [
-        { text: "→ github", href: "https://github.com/ringshome/big_eat_app" },
       ],
     },
     {
