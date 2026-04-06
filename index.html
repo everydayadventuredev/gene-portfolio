@@ -167,7 +167,7 @@ section{margin-bottom:5rem;scroll-margin-top:100px}
 .project-status.dev{color:var(--text-muted);border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.04)}
 .project-card p{font-size:15px;color:var(--text-secondary);line-height:1.75;margin-bottom:14px}
 .project-card .project-footer{display:flex;flex-wrap:wrap;gap:5px}
-.project-card .p-tag{font-family:var(--font-mono);font-size:12px;padding:4px 10px;border:1px solid var(--border);border-radius:3px;color:var(--text-muted)}
+.project-card .p-tag{font-family:var(--font-mono);font-size:12px;padding:4px 10px;border:1px solid var(--border);border-radius:3px;color:var(--text-muted);pointer-events:none;user-select:none}
 /* expand cue — gradient fade + chevron at bottom */
 .project-card .expand-cue{position:absolute;bottom:0;left:0;right:0;height:52px;background:linear-gradient(transparent,var(--bg-raised));display:flex;align-items:flex-end;justify-content:center;padding-bottom:12px;opacity:0;transition:opacity .3s}
 .project-card .expand-cue .cue-chevron{font-size:18px;color:var(--text-muted);transition:transform .3s, color .3s;animation:none}
@@ -189,8 +189,12 @@ section{margin-bottom:5rem;scroll-margin-top:100px}
 .project-detail .detail-highlights li::before{content:'→';color:var(--accent);flex-shrink:0;font-size:12px}
 .project-detail .detail-screenshot{width:100%;border-radius:var(--radius);border:1px solid var(--border);margin:12px 0}
 .project-detail .detail-gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:14px 0}
-.project-detail .detail-gallery img{width:100%;max-height:420px;object-fit:contain;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg-card);display:block;transition:border-color .2s,transform .2s}
+.project-detail .detail-gallery img{width:100%;max-height:420px;object-fit:contain;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg-card);display:block;transition:border-color .2s,transform .2s;cursor:zoom-in}
 .project-detail .detail-gallery img:hover{border-color:var(--accent);transform:translateY(-2px)}
+/* Lightbox */
+.lightbox-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.92);z-index:9999;cursor:zoom-out;justify-content:center;align-items:center;padding:2rem}
+.lightbox-overlay.active{display:flex}
+.lightbox-overlay img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:4px}
 .project-detail .detail-links{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
 .project-detail .detail-link{font-family:var(--font-mono);font-size:12px;color:var(--accent);text-decoration:none;padding:8px 18px;border:1px solid var(--accent);border-radius:var(--radius);transition:all .2s}
 .project-detail .detail-link:hover{background:var(--accent);color:var(--bg)}
@@ -1779,6 +1783,12 @@ function toggleProject(headOrCard, mode) {
 
   if (isExpanding) {
     card.classList.add('expanded');
+    requestAnimationFrame(() => {
+      const cardTop = card.getBoundingClientRect().top;
+      if (cardTop < 80 || cardTop > window.innerHeight * 0.4) {
+        window.scrollTo({ top: window.scrollY + cardTop - 100, behavior: 'smooth' });
+      }
+    });
     return;
   }
 
@@ -2086,6 +2096,22 @@ function rewindYear() {
     showAchievement('📅', `<span class="ach-label">${currentYear}</span> — ${yearMilestones[currentYear]}`);
   }
 }
+
+// Lightbox for gallery images
+const lightboxOverlay = document.createElement('div');
+lightboxOverlay.className = 'lightbox-overlay';
+lightboxOverlay.innerHTML = '<img>';
+document.body.appendChild(lightboxOverlay);
+lightboxOverlay.addEventListener('click', () => lightboxOverlay.classList.remove('active'));
+document.addEventListener('click', (e) => {
+  if (e.target.matches('.detail-gallery img')) {
+    lightboxOverlay.querySelector('img').src = e.target.src;
+    lightboxOverlay.classList.add('active');
+  }
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') lightboxOverlay.classList.remove('active');
+});
 </script>
 
 </body>
