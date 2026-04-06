@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(vercel --version)",
+      "Bash(npm i:*)",
+      "Bash(vercel login:*)",
+      "Bash(vercel --yes)",
+      "Bash(magick --version)",
+      "Bash(convert --version)",
+      "Bash(python -c \"from PIL import Image; print\\(''Pillow OK''\\)\")",
+      "Bash(ls -la *.png *.jpg *.jpeg)",
+      "Bash(python -c \":*)",
+      "Bash(python3 -c \":*)",
+      "Bash(python -c \"from PIL import Image; img = Image.open\\(''ea-01-home.png.jpg''\\); print\\(img.size\\)\")",
+      "Bash(python -c \"print\\(''hello''\\)\")",
+      "Bash(/c/Users/USER/AppData/Local/Programs/Python/Python314/python.exe -c \"from PIL import Image; img = Image.open\\(''ea-01-home.png.jpg''\\); print\\(img.size\\)\")",
+      "Read(//c/Users/USER/AppData/Local/Programs/**)",
+      "Bash(ls /c/Python*/python.exe)",
+      "Bash(where python:*)",
+      "Bash(\"C:\\\\Users\\\\USER\\\\AppData\\\\Local\\\\Python\\\\bin\\\\python.exe\" -c \"from PIL import Image; img = Image.open\\(''ea-01-home.png.jpg''\\); print\\(img.size\\)\")",
+      "Bash(PYTHON=\"C:\\\\Users\\\\USER\\\\AppData\\\\Local\\\\Python\\\\bin\\\\python.exe\")",
+      "Bash(\"$PYTHON\" -c \":*)",
+      "Bash(\"$PYTHON\":*)",
+      "Bash(vercel --prod --yes)",
+      "Bash(gh auth:*)",
+      "Bash(git init:*)",
+      "Bash(git branch:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ]
+  }
+}
