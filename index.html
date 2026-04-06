@@ -118,7 +118,7 @@ section{margin-bottom:5rem;scroll-margin-top:100px}
 
 .hero h1{font-family:var(--font-display);font-size:clamp(36px,6vw,56px);font-weight:400;line-height:1.2;color:var(--text);margin-bottom:1.5rem}
 .hero h1 em{font-style:italic;color:var(--accent)}
-.hero .subtitle{font-size:17px;color:var(--text-secondary);max-width:560px;line-height:1.9;margin-bottom:2rem}
+.hero .subtitle{font-size:17px;color:var(--text-secondary);max-width:560px;line-height:1.9;margin-bottom:.5rem}
 .hero .subtitle .aside{color:var(--text-muted);font-size:14px}
 .hero-ctas{display:flex;gap:10px;flex-wrap:wrap}
 .hero-credentials{font-family:var(--font-mono);font-size:13px;color:var(--text-secondary);letter-spacing:.5px;margin-bottom:.75rem;margin-top:-.5rem}
@@ -1720,8 +1720,8 @@ function render() {
       <section class="hero">
         <div class="hero-monogram">${d.profilePhoto ? `<img src="${d.profilePhoto}" alt="${d.name}"><span class="photo-tip">本人比照片上好看一點</span>` : d.monogram}</div>
         <h1>${d.title}</h1>
-        <p class="subtitle">${d.subtitle}</p>
         ${d.credentials ? `<div class="hero-credentials">${d.credentials}</div>` : ''}
+        <p class="subtitle">${d.subtitle}</p>
         ${d.subtitleAside?`<p class="subtitle aside">${d.subtitleAside}</p>`:''}
         <div class="hero-ctas">
           <a class="btn-primary" href="${d.ctaPrimary.href}">${d.ctaPrimary.text}</a>
