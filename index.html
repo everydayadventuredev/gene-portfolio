@@ -1989,8 +1989,37 @@ function openWritings(filterCat) {
       }).join('')}
     </div>`;
 
-  const filtered = currentFilter === 'all' ? w.pieces : w.pieces.filter(p => p.category === currentFilter);
-  filtered.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+  let filtered;
+  if (currentFilter === 'all') {
+    // Default view: interleave categories so one type does not dominate the top.
+    // Within each category, dated pieces stay newest-first; undated pieces keep source order.
+    const categoryOrder = [...new Set(w.pieces.map(p => p.category || '其他'))];
+    const groups = categoryOrder.map(cat => {
+      const pieces = w.pieces
+        .map((piece, index) => ({ piece, index }))
+        .filter(({ piece }) => (piece.category || '其他') === cat)
+        .sort((a, b) => {
+          if (a.piece.date && b.piece.date) return b.piece.date.localeCompare(a.piece.date);
+          if (a.piece.date) return -1;
+          if (b.piece.date) return 1;
+          return a.index - b.index;
+        })
+        .map(({ piece }) => piece);
+      return pieces;
+    });
+
+    filtered = [];
+    const maxLength = Math.max(...groups.map(group => group.length), 0);
+    for (let i = 0; i < maxLength; i++) {
+      groups.forEach(group => {
+        if (group[i]) filtered.push(group[i]);
+      });
+    }
+  } else {
+    filtered = w.pieces
+      .filter(p => p.category === currentFilter)
+      .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+  }
 
   const items = filtered.map((p, i) => {
     return `
