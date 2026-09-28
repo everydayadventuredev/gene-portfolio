@@ -320,6 +320,65 @@ footer .footer-year:hover{color:var(--accent)}
 footer .easter{font-family:var(--font-mono);font-size:11px;color:var(--text-muted);opacity:.4;transition:opacity .3s;cursor:default}
 footer .easter:hover{opacity:1}
 
+/* ═══ NEATNESS PASS — layout polish only, no content changes ═══ */
+/* Section rhythm: tighter transitions while keeping clear chapter breaks */
+#experience{margin-bottom:4.5rem}
+#projects{margin-bottom:0}
+.section-divider{margin:3.5rem 0 4.5rem}
+#after-hours{margin-bottom:4.5rem}
+#about{margin-bottom:4.5rem}
+#contact{margin-bottom:3.5rem}
+
+/* Projects: keep paired cards visually aligned without hiding any content */
+.project-card:not(.expanded) .project-head{
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+.project-card:not(.expanded) .project-head > p{
+  min-height:5.25em;
+}
+.project-card:not(.expanded) .project-footer{
+  margin-top:auto;
+  padding-top:2px;
+}
+
+/* After Hours: equal visual weight and consistent CTA baseline */
+.after-hours-card{
+  display:flex;
+  flex-direction:column;
+  min-height:220px;
+}
+.after-hours-card .ah-desc{
+  flex:1;
+}
+.after-hours-card .ah-link{
+  margin-top:auto;
+}
+
+/* About: give the long-form thinking room to breathe */
+.about-content .about-block:first-child p{
+  max-width:68ch;
+  line-height:1.95;
+}
+.about-content .about-block:nth-child(3) ul li{
+  font-size:14px;
+  line-height:1.65;
+  padding:4px 0;
+}
+.about-content .about-block:nth-child(3) ul li .li-dot{
+  margin-top:9px;
+}
+
+@media(max-width:640px){
+  #experience,#after-hours,#about{margin-bottom:4rem}
+  #projects{margin-bottom:0}
+  #contact{margin-bottom:3rem}
+  .section-divider{margin:3rem 0 4rem}
+  .project-card:not(.expanded) .project-head > p{min-height:0}
+  .after-hours-card{min-height:0}
+}
+
 /* ANIMATIONS */
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 .hero{animation:fadeUp .7s ease both}
